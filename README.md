@@ -1,1 +1,1 @@
-Repository for all write-ups pushed to blog.dreadsec.me.
+Repository for all of my write-ups pushed to blog.dreadsec.me.
