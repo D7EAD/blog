@@ -6,14 +6,12 @@
 <h3 align="center">Introduction to x86/x64 Assembly: Part One, The Basics</h3>
 
 <p align="left">
-  
-Assembly is perhaps one of, if not the most, daunting languages one can learn in the realm of computer science and engineering. It’s like the deep end of the pool – that place where you tread cautiously, trying not to flounder in a sea of what seems like foreign instructions. It's raw, it's bare-bones, and it's fundamental to how a computer operates. So, in one form or another, it manages to worm its way into the lives of computer science and engineering students, typically in their first or second year.
+  Assembly is perhaps one of, if not the most, daunting languages one can learn in the realm of computer science and engineering. It’s like the deep end of the pool – that place where you tread cautiously, trying not to flounder in a sea of what seems like foreign instructions. It's raw, it's bare-bones, and it's fundamental to how a computer operates. So, in one form or another, it manages to worm its way into the lives of computer science and engineering students, typically in their first or second year.
 
-In this blog series, we're aiming to make the beast called assembly a bit more approachable. We'll attempt to untangle its complexities and delve deep into its core. This first installment will walk you through the foundational aspects of assembly language.
+  In this blog series, we're aiming to make the beast called assembly a bit more approachable. We'll attempt to untangle its complexities and delve deep into its core. This first installment will walk you through the foundational aspects of assembly language.
 
-So, whether you're a seasoned programmer looking to get back to the basics or a curious beginner raring to dive into the exhilarating world of low-level programming, this blog is for you. If the term 'assembly' incites a sense of foreboding, or if you merely want to understand what the fuss is all about, stick around.
-  
-<p>
+  So, whether you're a seasoned programmer looking to get back to the basics or a curious beginner raring to dive into the exhilarating world of low-level programming, this blog is for you. If the term 'assembly' incites a sense of foreboding, or if you merely want to understand what the fuss is all about, stick around.
+</p>
   
 <h3>Table of Contents</h3>
 
@@ -28,17 +26,14 @@ So, whether you're a seasoned programmer looking to get back to the basics or a 
   - Fundamental Components: Registers, Operands, and Instructions
 - Getting Started with Assembly Language
   - Setting up Your Environment
-- Writing Your First Assembly Program
-  - A Look at Assembly Syntax
-  - Understanding Basic Assembly Commands
-  - Creating and Running a Simple Program
 - Concluding Remarks and What to Expect in Part Two
 - Resources for Further Learning
 
-## Introduction to Assembly
+<br>
+
+# Introduction to Assembly
 ### Brief Overview of Assembly Language
 <p align="left">
-
   Assembly language, also commonly referred to as simply 'assembly', is a low-level programming language that has a strong correspondence with the architecture's machine code instructions. Think of it as the bridge between high-level languages (like Python, Java, or C++) and the computer hardware itself. While programming in high-level languages involves writing more human-readable code, assembly deals directly with the computer's nuts and bolts.
 
   <p align="center">
@@ -96,24 +91,52 @@ addl %ebx, %eax
 ### The Importance of Learning Assembly
 
 <p align="left">
-  
-You might be wondering why we should bother learning assembly language when we have powerful high-level languages at our disposal. Surely, it's easier to write a Python script or a C++ program, but there are several reasons why learning assembly is still highly beneficial, even in our modern computing landscape. For instance:
+  You might be wondering why we should bother learning assembly language when we have powerful high-level languages at our disposal. Surely, it's easier to write a Python script or a C++ program, but there are several reasons why learning assembly is still highly beneficial, even in our modern computing landscape. For instance:
 
-1. <b>Understanding How Computers Truly Work</b>:
-Assembly language is a window into the heart of your computer. When you learn assembly, you get to understand the intricate mechanisms that allow your computer to function. You learn about registers, how data is managed in memory, how instructions are processed, and much more. It's like peeking under the hood of your car – you get to see the engine that drives the entire system.
+  1. <b>Understanding How Computers Truly Work</b>:
+  Assembly language is a window into the heart of your computer. When you learn assembly, you get to understand the intricate mechanisms that allow your computer to function. You learn about registers, how data is managed in memory, how instructions are processed, and much more. It's like peeking under the hood of your car – you get to see the engine that drives the entire system.
 
-2. <b>Performance Optimization</b>:
-There are instances where the speed and efficiency of a program are absolutely critical, such as in game development, real-time systems, or high-frequency trading systems. With assembly, you have the ultimate control over your code, allowing you to squeeze out every ounce of performance from your hardware.
+  2. <b>Performance Optimization</b>:
+  There are instances where the speed and efficiency of a program are absolutely critical, such as in game development, real-time systems, or high-frequency trading systems. With assembly, you have the ultimate control over your code, allowing you to squeeze out every ounce of performance from your hardware.
 
-3. <b>Debugging and Reverse Engineering</b>:
-Sometimes, to find an elusive bug or to understand a piece of malware, you'll need to dive into the assembly code of a program. Debuggers often show you the assembly instructions that correspond to your high-level code. By understanding assembly, you'll be better equipped to tackle these tasks.
+  3. <b>Debugging and Reverse Engineering</b>:
+  Sometimes, to find an elusive bug or to understand a piece of malware, you'll need to dive into the assembly code of a program. Debuggers often show you the assembly instructions that correspond to your high-level code. By understanding assembly, you'll be better equipped to tackle these tasks.
 
-4. <b>Writing Drivers and Embedded Systems Programming</b>:
-Assembly language is often used to write drivers and for programming embedded systems, where hardware-specific code is necessary, and resources like memory and processing power are limited.
+  4. <b>Writing Drivers and Embedded Systems Programming</b>:
+  Assembly language is often used to write drivers and for programming embedded systems, where hardware-specific code is necessary, and resources like memory and processing power are limited.
 
-5. <b>Broadens Your Skill Set</b>:
-Finally, having assembly language in your repertoire is an excellent way to stand out. It demonstrates your willingness to dive deep into complex topics and your understanding of computers at a fundamental level.
-  
+  5. <b>Broadens Your Skill Set</b>:
+  Finally, having assembly language in your repertoire is an excellent way to stand out. It demonstrates your willingness to dive deep into complex topics and your understanding of computers at a fundamental level.
 </p>
 
+<br>
+
+# Historical Context of Assembly Language
+### Brief History and Evolution
+<p align="left">
+Assembly language has been around for quite a while, and understanding its origins can help us appreciate its role in shaping the modern computing world.
+
+In the early days of computing, around the 1940s and 50s, programming was done using machine language – binary data directly understood by the hardware. This process was not only complex but also prone to errors. Introduced in the early 1950s, assembly was a breath of fresh air for programmers. It replaced the pain-in-the-ass raw binary with symbolic representations, making it easier for humans to write and understand. Each of these symbols, called mnemonics, represented a specific operation or instruction set on the machine.
+
+The IBM 704, introduced in the mid-1950s, was one of the first computers to incorporate an assembly language, and it was quite revolutionary at the time. Soon, however, the process was automated with the development of the first assembler – a program that automates the translation of assembly language into machine language. This further simplified the task of writing low-level code and paved the way for the widespread use of assembly language.
+
+As the years rolled by and computing technology evolved, assembly language became more sophisticated and powerful. Different types of assembly languages were developed for different hardware architectures, leading to the likes of x86, ARM, MIPS, and many more that we see today. Yet, despite the rise of high-level languages that offer greater simplicity and abstraction, assembly language remains relevant. It's commonly used in systems programming, embedded systems, reverse engineering, and anywhere else where hardware-level control and optimization are required.
+</p>
+
+### Role in Modern Computers
+<p align="left">
+  As mentioned in the previous section, despite the incredible progress in high-level languages, you might be surprised to find that assembly language still plays a significant role in modern computing. The world of programming is vast and varied, and there are many niches where assembly's unique capabilities make it the tool of choice.
+
+  1. <b>Systems Programming</b>:
+  Assembly language is often used in systems programming, which involves writing software that interfaces with, manages, and controls the computer's hardware or operating system. This includes writing operating systems, device drivers, and other hardware interfaces. In such scenarios, both the close hardware control and the optimization that assembly offers are invaluable.
+
+  2. <b>Embedded Systems and Real-Time Systems</b>:
+  Embedded systems, such as those found in cars, home appliances, or even spacecraft, often require the kind of precision control and optimization that only assembly can provide. The same goes for real-time systems, where the timeliness of responses is critical, and any delay can have severe consequences.
+
+  3. <b>Reverse Engineering and Security</b>
+  In cybersecurity, assembly is quite popular; experts often need to reverse engineer software to understand how it works, to find vulnerabilities, or to analyze malware. This often involves digging into the assembly code, making a knowledge of assembly language essential in this field.
+  
+  While assembly language is no longer the go-to language for general-purpose programming, it has found its niches where its unique capabilities make it not just relevant, but critical.
+</p>
+  
 <p align="center">brought to you by <a href="https://github.com/D7EAD">d7ead</a></p>
