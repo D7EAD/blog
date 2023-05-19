@@ -1,4 +1,8 @@
 <p align="right"><a href="https://blog.dreadsec.me/">Return to Main Page</a></p>
+
+<p align="center">
+  <img src="logo.png" width="200px">
+</p>
 <h3 align="center">Introduction to x86/x64 Assembly: Part One, The Basics</h3>
 
 <p align="left">
