@@ -32,7 +32,7 @@ So, whether you're a seasoned programmer looking to get back to the basics or a 
 Assembly language, also commonly referred to as simply 'assembly', is a low-level programming language that has a strong correspondence with the architecture's machine code instructions. Think of it as the bridge between high-level languages (like Python, Java, or C++) and the computer hardware itself. While programming in high-level languages involves writing more human-readable code, assembly deals directly with the computer's nuts and bolts.
 
 <p align="center">
-  <img src="langchart.png" />
+  <img src="langchart.png">
 </p>
   
 The code written in assembly is processed by an assembler, which translates it into machine code—the lowest level of code that's directly executed by the computer's central processing unit (CPU). This means assembly gives you the power to write code that speaks directly to your computer's hardware.
@@ -45,48 +45,9 @@ For the sake of our collective sanity, we will be learning and making use of Int
 
 For example, just take a look at the difference between the two below.
 
-<table align="center" style="margin: 0px auto;">
-<tr>
-<th>x86 (Intel)</th>
-<th>x86 (AT&T)</th>
-</tr>
-<tr>
-<td>
-
-  
-```asm
-
-push eax     
-mov eax, [ebx]
-add eax, 5  
-inc eax       
-mov ebx, eax
-pop eax      
-add eax, ebx    
-
-```
-
-  
-</td>
-<td>
-
-  
-```asm
-
-pushl %eax        
-movl (%ebx), %eax   
-addl $5, %eax   
-incl %eax        
-movl %eax, %ebx   
-popl %eax      
-addl %ebx, %eax  
-
-```
-
-  
-</td>
-</tr>
-</table>
+<p align="center">
+  <img src="table1.png">
+</p>
 
 <p align="center">We will be using the syntax on the left throughout this series.</p>
 
@@ -170,34 +131,9 @@ Registers, while much smaller than the stack and heap, are much faster. They are
 ### Fundamental Components: Registers, Operands, and Instructions
 We have already touched on the concept of registers, however, we have yet to explore how they are used in x86 and x64 assembly. We will start out with four of the most basic, general-purpose registers in both x86 and x64 assembly. While these registers have other specific purposes and use-cases that we will cover alter, for now, we are just interested in getting to know their names.
   
-<table align="center" style="margin: 0px auto;">
-<tr>
-<th>x86</th>
-<th>x64</th>
-</tr>
-<tr>
-<td>
-
-```asm
-  eax ; the EAX register (x86, 32-bits)
-  ebx ; the EBX register (x86, 32-bits)
-  ecx ; the ECX register (x86, 32-bits)
-  edx ; the EDX register (x86, 32-bits)
-```
-
-</td>
-<td>
-
-```asm
-  rax ; the RAX register (x64, 64-bits)
-  rbx ; the RBX register (x64, 64-bits)
-  rcx ; the RCX register (x64, 64-bits)
-  rdx ; the RDX register (x64, 64-bits)
-```
-
-</td>
-</tr>
-</table>
+<p align="center">
+  <img src="table2.png" />
+</p>
 
 As you can see above, these are the name of the four most basic registers. It is important to note that, while RAX and EAX (and the other registers) are 64 and 32 bits respectively, it is possible to access specific segments of bits of either. For instance, if we wanted to access the lower 16 bits of EAX, we would make use of the AX register - which refers to the lower 16 bits of the 32 bit EAX register.
 
@@ -229,47 +165,18 @@ Instructions are the operations that the CPU performs. Each assembly language in
 There are many different types of instructions. Some perform basic arithmetic or logical operations (like ADD or AND). Others move data between registers and memory (like MOV or PUSH). Control flow instructions change the order in which instructions are executed (like JMP or CALL). Finally, system call instructions interact with the operating system to perform tasks like reading input or writing output (like INT on x86 architectures). In assembly language, each line of your program generally corresponds to one instruction. You specify the operation, followed by the operands that the operation should work on.
 
 Instructions in x86 and x64 usually follow the syntax: `<instr> <ops>` where `ops` can be 1, 2, or 3 operands to instruction `instr`. For Intel syntax, the leftmost operand is the destination operand - the operand where the result of the instruction will be placed. While there are a lot of instructions in x86 and x64 assembly, we will take a quick look at the simplest of them all - `mov`, which has the syntax: `mov <dst>, <data>` where `dst` is a register or memory location, and `data` is some sort of data to move to `dst`.
-
-  
-<table align="center" style="margin: 0px auto;">
-<tr>
-<th>Simple Instructions (x64): <code>mov</code></th>
-</tr>
-<tr>
-<td>
-
-```asm
-mov rax, rbx   ; move the value from the RBX register into the RAX register.
-mov eax, 10h   ; move the hexadecimal value 10 into the EAX register.
-mov rax, [rcx] ; treat the value in the RCX register as an address, fetch the value at address, move into RAX.
-```
-
-</td>
-</tr>
-</table>
-  
+ 
+<p align="center">
+  <img src="table3.png" />
+</p>
   
 As you can see above, not only have we been introduced to the `mov` instruction, but we have also been introduced to several things we can do with it. While we will dive much deeper into using instructions in Part Two, let us take a look at one more simple instruction: the `add` instruction. 
 
 You would assume that the `add` instruction performs addition between two operands - and you would be right. The `add` instruction follows the syntax `add <lho> <rho>` where `lho` is the left-hand operand and `rho` is the right-hand operand. The `add` instruction will add the two operands together and store the result in the left-hand operand. So, for instance, see the table below.
   
-<table align="center" style="margin: 0px auto;">
-<tr>
-<th>Simple Instructions (x64): <code>add</code></th>
-</tr>
-<tr>
-<td>
-
-```asm
-add rax, rbx   ; add value in RBX to value in RAX, store result in RAX.
-add eax, 10h   ; add hexadecimal value 10 to EAX, store the result in EAX.
-add rax, [rcx] ; treat value in RCX as an address, fetch the value at address, add to the value in RAX, store
-               ; the result back in RAX.
-```
-
-</td>
-</tr>
-</table>
+<p align="center">
+  <img src="table4.png" />
+</p>
   
 Now that we are familiar with basic instructions, let us move forward to creating our first program. However, before we do so, we must first setup our environment to write in assembly. 
 
