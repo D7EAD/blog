@@ -25,9 +25,8 @@
   - Structures Relevant to Assembly Language
   - Fundamental Components: Registers, Operands, and Instructions
 - Getting Started with Assembly Language
-  - Setting up Your Environment
-- Concluding Remarks and What to Expect in Part Two
-- Resources for Further Learning
+  - Setting Up Your Environment
+- Conclusion
 
 <br>
 
@@ -139,7 +138,7 @@ As the years rolled by and computing technology evolved, assembly language becam
   While assembly language is no longer the go-to language for general-purpose programming, it has found its niches where its unique capabilities make it not just relevant, but critical.
 </p>
   
-<b>
+<br>
   
 # Basics of Assembly Language
 ### Structures Relevant to Assembly Language
@@ -243,7 +242,7 @@ Instructions in x86 and x64 usually follow the syntax: `<instr> <ops>` where `op
 
 <table align="center" style="margin: 0px auto;">
 <tr>
-<th>Simple Instructions (x64)</th>
+<th>Simple Instructions (x64): <code>mov</code></th>
 </tr>
 <tr>
 <td>
@@ -258,6 +257,53 @@ mov rax, [rcx] ; treat the value in the RCX register as an address, fetch the va
 </tr>
 </table>
   
+As you can see above, not only have we been introduced to the `mov` instruction, but we have also been introduced to several things we can do with it. While we will dive much deeper into using instructions in Part Two, let us take a look at one more simple instruction: the `add` instruction. 
+  
+You would assume that the `add` instruction performs addition between two operands - and you would be right. The `add` instruction follows the syntax `add <lho> <rho>` where `lho` is the left-hand operand and `rho` is the right-hand operand. The `add` instruction will add the two operands together and store the result in the left-hand operand. So, for instance, see the table below.
+  
+<table align="center" style="margin: 0px auto;">
+<tr>
+<th>Simple Instructions (x64): <code>add</code></th>
+</tr>
+<tr>
+<td>
+
+```asm
+add rax, rbx   ; add value in RBX to value in RAX, store result in RAX.
+add eax, 10h   ; add hexadecimal value 10 to EAX, store the result in EAX.
+add rax, [rcx] ; treat value in RCX as an address, fetch the value at address, add to the value in RAX, store
+               ; the result back in RAX.
+```
+
+</td>
+</tr>
+</table>
+  
+Now that we are familiar with basic instructions, let us move forward to creating our first program. However, before we do so, we must first setup our environment to write in assembly. 
 </p>
 
+<br>
+  
+# Getting Started with Assembly Language
+### Setting Up Your Environment
+<p align="left">
+Before we begin programming in assembly, we must first setup our environment to be able to assemble our written code. There are a couple options to choose from:
+
+1. We can write assembly directly inline using C or C++,
+2. or we can use a proper assembler such as NASM or GAS.
+  
+Writing assembly inline using C or C++ is the easiest option, however, this will not work for x64 assembly - only x86. On the other hand. using a proper assembler such as NASM or GAS will allow for both, and more! 
+  
+For assistance installing the NASM assembler, see <a href="https://www.tutorialspoint.com/assembly_programming/assembly_environment_setup.htm">here</a>. For GAS, see <a href="https://stackoverflow.com/questions/4252012/how-to-install-and-use-gas-gnu-compiler-on-linux">here</a>.
+</p>
+  
+<br>
+  
+# Conclusion
+<p align="left">
+In this section, we have learned several things about assembly. We have learned its history, its role in modern computing, the sectors in which it is still crucial, and we have even dipped our toes in basic assembly syntax and instructions. As we move forward to Part Two, you should feel comfortable encountering additional instructions, as well as new concepts of the x86 and x64 assembly languages. Furthermore, we will explore the concepts of the stack base pointer and stack pointer - as well as the pointer arithmetic surrounding them.
+  
+Hopefully you have learned a good amount in this short write-up. See you in the next section.
+</p>
+  
 <p align="center">brought to you by <a href="https://github.com/D7EAD">d7ead</a></p>
