@@ -139,4 +139,25 @@ As the years rolled by and computing technology evolved, assembly language becam
   While assembly language is no longer the go-to language for general-purpose programming, it has found its niches where its unique capabilities make it not just relevant, but critical.
 </p>
   
+<b>
+  
+# Basics of Assembly Language
+### Structures Relevant to Assembly Language
+<p align="left">
+  There is a reason computer science and engineering students are often introduced to assembly language following their introductory courses. The reason for this is that these courses taken prior to those related to assembly <b>must</b> introduce students to the data structures found in programming and beyond - notably assembly language. 
+</p>
+  
+<h3 align="middle">The Stack</h3>
+<p align="left">
+  A stack in concept is a First-In-Last-Out (FILO) data structure but, in terms of assembly, it's a special region of the computer's (or individual process') memory that stores temporary variables created by each function. It also helps keep track of nested function calls. The stack grows and shrinks automatically when your program runs, pushing data when needed and popping it when it's no longer required. The FILO order of the stack is crucial for managing function calls and returns.
+
+<p align="center">
+  <img src="memmod.jpg" />
+</p>
+
+  As you can see above, in the context of a computer (x86) or process, the stack resides in memory and grows downward to lower memory addresses. Values may be <b>pushed</b> and <b>popped</b> off the stack throughout the lifetime of a program and it is crucial to be familiar with this simple data structure.
+  * <b>Pushing to the stack</b>: pushing to the stack is the process of inserting a value at the top of the stack. As more values are pushed to the stack, previously pushed values sink below most recently pushed values. This is what causes the First-In-Last-Out element of a stack - the first element pushed to a stack will be the last one popped out, as it waits for any values pushed after it to be removed.
+  * <b>Popping from the stack</b>: popping from the stack is the process of removing the value at the top of the stack.
+</p>
+  
 <p align="center">brought to you by <a href="https://github.com/D7EAD">d7ead</a></p>
