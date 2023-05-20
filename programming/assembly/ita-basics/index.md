@@ -58,7 +58,9 @@
 <tr>
 <td>
 
+  
 ```asm
+
 push eax     
 mov eax, [ebx]
 add eax, 5  
@@ -66,12 +68,16 @@ inc eax
 mov ebx, eax
 pop eax      
 add eax, ebx    
+
 ```
 
+  
 </td>
 <td>
 
+  
 ```asm
+
 pushl %eax        
 movl (%ebx), %eax   
 addl $5, %eax   
@@ -79,8 +85,10 @@ incl %eax
 movl %eax, %ebx   
 popl %eax      
 addl %ebx, %eax  
+
 ```
 
+  
 </td>
 </tr>
 </table>
