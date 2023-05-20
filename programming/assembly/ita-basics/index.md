@@ -300,7 +300,7 @@ add rax, [rcx] ; treat value in RCX as an address, fetch the value at address, a
 Now that we are familiar with basic instructions, let us move forward to creating our first program. However, before we do so, we must first setup our environment to write in assembly. 
 </p>
 
-<br>
+<br><br>
   
 # Getting Started with Assembly Language
 ### Setting Up Your Environment
