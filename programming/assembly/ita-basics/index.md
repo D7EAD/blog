@@ -56,7 +56,7 @@ You might be wondering why we should bother learning assembly language when we h
 1. **Understanding How Computers Truly Work**:
 Assembly language is a window into the heart of your computer. When you learn assembly, you get to understand the intricate mechanisms that allow your computer to function. You learn about registers, how data is managed in memory, how instructions are processed, and much more. It's like peeking under the hood of your car – you get to see the engine that drives the entire system.
 
-2. **Performance Optimization**</b>:
+2. **Performance Optimization**:
 There are instances where the speed and efficiency of a program are absolutely critical, such as in game development, real-time systems, or high-frequency trading systems. With assembly, you have the ultimate control over your code, allowing you to squeeze out every ounce of performance from your hardware.
 
 3. **Debugging and Reverse Engineering**:
@@ -97,7 +97,7 @@ While assembly language is no longer the go-to language for general-purpose prog
   
 # Basics of Assembly Language
 ### Structures Relevant to Assembly Language
-There is a reason computer science and engineering students are often introduced to assembly language following their introductory courses. The reason for this is that these courses taken prior to those related to assembly <b>must</b> introduce students to the data structures found in programming and beyond - notably assembly language. 
+There is a reason computer science and engineering students are often introduced to assembly language following their introductory courses. The reason for this is that these courses taken prior to those related to assembly **must** introduce students to the data structures found in programming and beyond - notably assembly language. 
   
 <h3 align="middle">The Stack</h3>
 
