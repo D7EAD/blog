@@ -149,15 +149,115 @@ As the years rolled by and computing technology evolved, assembly language becam
   
 <h3 align="middle">The Stack</h3>
 <p align="left">
-  A stack in concept is a First-In-Last-Out (FILO) data structure but, in terms of assembly, it's a special region of the computer's (or individual process') memory that stores temporary variables created by each function. It also helps keep track of nested function calls. The stack grows and shrinks automatically when your program runs, pushing data when needed and popping it when it's no longer required. The FILO order of the stack is crucial for managing function calls and returns.
+  A stack in concept is a First-In-Last-Out (FILO) data structure but, in terms of assembly, it's a region of the computer's (or individual process') memory that stores temporary variables created by each function. It also helps keep track of nested function calls. The stack grows and shrinks automatically when your program runs, pushing data when needed and popping it when it's no longer required. The FILO order of the stack is crucial for managing function calls and returns.
 
 <p align="center">
-  <img src="memmod.jpg" />
+  <img src="memmod.jpg">
 </p>
 
   As you can see above, in the context of a computer (x86) or process, the stack resides in memory and grows downward to lower memory addresses. Values may be <b>pushed</b> and <b>popped</b> off the stack throughout the lifetime of a program and it is crucial to be familiar with this simple data structure.
   * <b>Pushing to the stack</b>: pushing to the stack is the process of inserting a value at the top of the stack. As more values are pushed to the stack, previously pushed values sink below most recently pushed values. This is what causes the First-In-Last-Out element of a stack - the first element pushed to a stack will be the last one popped out, as it waits for any values pushed after it to be removed.
   * <b>Popping from the stack</b>: popping from the stack is the process of removing the value at the top of the stack.
-</p>
   
+  You may have noticed additional structures in the graph above such as the heap, data segment, and code segment. Each of these has their own purpose.
+  * <b>The Heap</b>: the heap is similar to the stack in the sense that it is a large area within memory where data is held, however, it differs in regard to its use and structure. The heap is used for storing dynamically allocated data - data that needs to be resized during runtime such as an array, for instance. The stack is highly structured where as the heap is less so, so this results in the stack not being able to have allocated data resized at runtime.
+    * The stack can be thought of as a highly structured, contiguous stretch of memory where there are no holes between allocations; however, the heap can be thought of as a stretch of memory where there may be holes and allocations may resize themselves during runtime.
+  * <b>The Data Segment</b>: the data (.data) segment is a read-write-execute section in memory where static and initialized data is stored that can be used throughout the process. It is important to note that the data segment is not part of the stack.
+  * <b>The Code Segment</b>: the code (.text) segment is a read-execute section in memory where the code of the program is located.
+</p>
+
+<h3 align="middle">Registers</h3>
+<p align="left">
+  While the stack and heap are places data can be stored, they are not the only places - nor the fastest. Enter registers.
+  
+  <p align="center">
+    <img src="regist.jpg">
+  </p>
+
+  Registers, while much smaller than the stack and heap, are much faster. They are used to store and access data during program execution directly from the CPU which is much faster than doing so on either the heap or the stack - which reside in main memory. Registers are most often used for high-speed computations and storage of temporary data, such as a function return value or the result of some arithmetic operation. These registers can be directly accessed via assembly, where as accessing structures such as the stack or heap through assembly require indirection which we will cover next.
+</p>
+
+### Fundamental Components: Registers, Operands, and Instructions
+<p align="left">
+  We have already touched on the concept of registers, however, we have yet to explore how they are used in x86 and x64 assembly. We will start out with four of the most basic, general-purpose registers in both x86 and x64 assembly. While these registers have other specific purposes and use-cases that we will cover alter, for now, we are just interested in getting to know their names.
+  
+<table align="center" style="margin: 0px auto;">
+<tr>
+<th>x86</th>
+<th>x64</th>
+</tr>
+<tr>
+<td>
+
+```asm
+  eax ; the EAX register (x86, 32-bits)
+  ebx ; the EBX register (x86, 32-bits)
+  ecx ; the ECX register (x86, 32-bits)
+  edx ; the EDX register (x86, 32-bits)
+```
+
+</td>
+<td>
+
+```asm
+  rax ; the RAX register (x64, 64-bits)
+  rbx ; the RBX register (x64, 64-bits)
+  rcx ; the RCX register (x64, 64-bits)
+  rdx ; the RDX register (x64, 64-bits)
+```
+
+</td>
+</tr>
+</table>
+
+As you can see above, these are the name of the four most basic registers. It is important to note that, while RAX and EAX (and the other registers) are 64 and 32 bits respectively, it is possible to access specific segments of bits of either. For instance, if we wanted to access the lower 16 bits of EAX, we would make use of the AX register - which refers to the lower 16 bits of the 32 bit EAX register.
+
+* For x64:
+  * RAX is the full 64 bits.
+  * EAX refers to the lower 32 bits of RAX.
+  * AX refers to the lower 16 bits of EAX.
+  * AH refers to the higher 8 bits of AX.
+  * AL refers to the lower 8 bits of AX.
+* For x86:
+  * EAX is the full 32 bits.
+  * AX refers to the lower 16 bits of EAX.
+  * AH refers to the higher 8 bits of AX.
+  * AL refers to the lower 8 bits of AX.
+
+Any changes to the AX register, or any other register that refers to certain bits of the top-most register, will be reflected in those lower bits of the RAX register.
+
+  <p align="center">
+    <img src="bitdiv.png">
+  </p>
+
+This applies to RBX, RCX, and RDX as well.
+</p>
+
+<h3 align="middle">Operands and Instructions</h3>
+<p align="left">
+Instructions are the operations that the CPU performs. Each assembly language instruction corresponds to one (or sometimes more) machine language instruction that the CPU can execute directly.
+  
+There are many different types of instructions. Some perform basic arithmetic or logical operations (like ADD or AND). Others move data between registers and memory (like MOV or PUSH). Control flow instructions change the order in which instructions are executed (like JMP or CALL). Finally, system call instructions interact with the operating system to perform tasks like reading input or writing output (like INT on x86 architectures). In assembly language, each line of your program generally corresponds to one instruction. You specify the operation, followed by the operands that the operation should work on.
+  
+Instructions in x86 and x64 usually follow the syntax: `<instr> <ops>` where `ops` can be 1, 2, or 3 operands to instruction `instr`. For Intel syntax, the leftmost operand is the destination operand - the operand where the result of the instruction will be placed. While there are a lot of instructions in x86 and x64 assembly, we will take a quick look at the simplest of them all - `mov`, which has the syntax: `mov <dst>, <data>` where `dst` is a register or memory location, and `data` is some sort of data to move to `dst`.
+
+<table align="center" style="margin: 0px auto;">
+<tr>
+<th>Simple Instructions (x64)</th>
+</tr>
+<tr>
+<td>
+
+```asm
+mov rax, rbx   ; move the value from the RBX register into the RAX register.
+mov eax, 10h   ; move the hexadecimal value 10 into the EAX register.
+mov rax, [rcx] ; treat the value in the RCX register as an address, fetch the value at address, move into RAX.
+```
+
+</td>
+</tr>
+</table>
+  
+</p>
+
 <p align="center">brought to you by <a href="https://github.com/D7EAD">d7ead</a></p>
