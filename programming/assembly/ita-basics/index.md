@@ -175,6 +175,7 @@ As the years rolled by and computing technology evolved, assembly language becam
     <li>The stack can be thought of as a highly structured, contiguous stretch of memory where there are no holes between allocations; however, the heap can be thought of as a stretch of memory where there may be holes and allocations may resize themselves during runtime.</li></ul>
   <li><b>The Data Segment</b>: the data (.data) segment is a read-write-execute section in memory where static and initialized data is stored that can be used throughout the process. It is important to note that the data segment is not part of the stack.</li>
   <li><b>The Code Segment</b>: the code (.text) segment is a read-execute section in memory where the code of the program is located.</li>
+</ul>
 </p>
 
 <h3 align="middle">Registers</h3>
