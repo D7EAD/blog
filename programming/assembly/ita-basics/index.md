@@ -163,17 +163,18 @@ As the years rolled by and computing technology evolved, assembly language becam
 </p>
 
   As you can see above, in the context of a computer (x86) or process, the stack resides in memory and grows downward to lower memory addresses. Values may be <b>pushed</b> and <b>popped</b> off the stack throughout the lifetime of a program and it is crucial to be familiar with this simple data structure.
-  
-  * <b>Pushing to the stack</b>: pushing to the stack is the process of inserting a value at the top of the stack. As more values are pushed to the stack, previously pushed values sink below most recently pushed values. This is what causes the First-In-Last-Out element of a stack - the first element pushed to a stack will be the last one popped out, as it waits for any values pushed after it to be removed.
-  * <b>Popping from the stack</b>: popping from the stack is the process of removing the value at the top of the stack.
-  
-  <br><br>
+<ul>
+  <li><b>Pushing to the stack</b>: pushing to the stack is the process of inserting a value at the top of the stack. As more values are pushed to the stack, previously pushed values sink below most recently pushed values. This is what causes the First-In-Last-Out element of a stack - the first element pushed to a stack will be the last one popped out, as it waits for any values pushed after it to be removed.</li>
+  <li><b>Popping from the stack</b>: popping from the stack is the process of removing the value at the top of the stack.</li>
+</ul>
+
   You may have noticed additional structures in the graph above such as the heap, data segment, and code segment. Each of these has their own purpose.
   
-  * <b>The Heap</b>: the heap is similar to the stack in the sense that it is a large area within memory where data is held, however, it differs in regard to its use and structure. The heap is used for storing dynamically allocated data - data that needs to be resized during runtime such as an array, for instance. The stack is highly structured where as the heap is less so, so this results in the stack not being able to have allocated data resized at runtime.
-    * The stack can be thought of as a highly structured, contiguous stretch of memory where there are no holes between allocations; however, the heap can be thought of as a stretch of memory where there may be holes and allocations may resize themselves during runtime.
-  * <b>The Data Segment</b>: the data (.data) segment is a read-write-execute section in memory where static and initialized data is stored that can be used throughout the process. It is important to note that the data segment is not part of the stack.
-  * <b>The Code Segment</b>: the code (.text) segment is a read-execute section in memory where the code of the program is located.
+<ul>
+  <li><b>The Heap</b>: the heap is similar to the stack in the sense that it is a large area within memory where data is held, however, it differs in regard to its use and structure. The heap is used for storing dynamically allocated data - data that needs to be resized during runtime such as an array, for instance. The stack is highly structured where as the heap is less so, so this results in the stack not being able to have allocated data resized at runtime.<ul>
+    <li>The stack can be thought of as a highly structured, contiguous stretch of memory where there are no holes between allocations; however, the heap can be thought of as a stretch of memory where there may be holes and allocations may resize themselves during runtime.</li></ul>
+  <li><b>The Data Segment</b>: the data (.data) segment is a read-write-execute section in memory where static and initialized data is stored that can be used throughout the process. It is important to note that the data segment is not part of the stack.</li>
+  <li><b>The Code Segment</b>: the code (.text) segment is a read-execute section in memory where the code of the program is located.</li>
 </p>
 
 <h3 align="middle">Registers</h3>
@@ -222,19 +223,21 @@ As the years rolled by and computing technology evolved, assembly language becam
 
 As you can see above, these are the name of the four most basic registers. It is important to note that, while RAX and EAX (and the other registers) are 64 and 32 bits respectively, it is possible to access specific segments of bits of either. For instance, if we wanted to access the lower 16 bits of EAX, we would make use of the AX register - which refers to the lower 16 bits of the 32 bit EAX register.
 
+<ul>
+  <li>For x64:<ul>
+    <li>RAX is the full 64 bits.</li>
+    <li>EAX refers to the lower 32 bits of RAX.</li>
+    <li>AX refers to the lower 16 bits of EAX.</li>
+    <li>AH refers to the higher 8 bits of AX.</li>
+    <li>AL refers to the lower 8 bits of AX.</li></ul>
+  <li>For x86:<ul>
+    <li>EAX is the full 32 bits.</li>
+    <li>AX refers to the lower 16 bits of EAX.</li>
+    <li>AH refers to the higher 8 bits of AX.</li>
+    <li>AL refers to the lower 8 bits of AX.</li></ul>
+</ul>
 
-* For x64:
-  * RAX is the full 64 bits.
-  * EAX refers to the lower 32 bits of RAX.
-  * AX refers to the lower 16 bits of EAX.
-  * AH refers to the higher 8 bits of AX.
-  * AL refers to the lower 8 bits of AX.
-* For x86:
-  * EAX is the full 32 bits.
-  * AX refers to the lower 16 bits of EAX.
-  * AH refers to the higher 8 bits of AX.
-  * AL refers to the lower 8 bits of AX.
-
+<br>
 
 Any changes to the AX register, or any other register that refers to certain bits of the top-most register, will be reflected in those lower bits of the RAX register.
 
