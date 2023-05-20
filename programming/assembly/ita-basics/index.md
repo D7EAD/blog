@@ -308,6 +308,7 @@ Now that we are familiar with basic instructions, let us move forward to creatin
 Before we begin programming in assembly, we must first setup our environment to be able to assemble our written code. There are a couple options to choose from:
 <br><br>
 1. We can write assembly directly inline using C or C++,
+  <br><br>
 2. or we can use a proper assembler such as NASM or GAS.
 <br><br>
 Writing assembly inline using C or C++ is the easiest option, however, this will not work for x64 assembly - only x86. On the other hand. using a proper assembler such as NASM or GAS will allow for both, and more! 
