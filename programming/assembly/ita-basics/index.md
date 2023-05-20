@@ -12,16 +12,16 @@ In this blog series, we're aiming to make the beast called assembly a bit more a
 So, whether you're a seasoned programmer looking to get back to the basics or a curious beginner raring to dive into the exhilarating world of low-level programming, this blog is for you. If the term 'assembly' incites a sense of foreboding, or if you merely want to understand what the fuss is all about, stick around.
   
 ### Table of Contents
-- Introduction to Assembly
+- <a href="#introduction-to-assembly">Introduction to Assembly</a>
   - Brief Overview of Assembly Language
   - The Importance of Learning Assembly
-- Historical Context of Assembly Language
+- <a href="historical-context-of-assembly-language">Historical Context of Assembly Language</a>
   - Brief History and Evolution
   - Role in Modern Computing
-- Basics of Assembly Language
+- <a href="#basics-of-assembly-language">Basics of Assembly Language</a>
   - Structures Relevant to Assembly Language
   - Fundamental Components: Registers, Operands, and Instructions
-- Getting Started with Assembly Language
+- <a href="#getting-started-with-assembly-language">Getting Started with Assembly Language</a>
   - Setting Up Your Environment
 - Conclusion
 
