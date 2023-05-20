@@ -15,7 +15,7 @@ So, whether you're a seasoned programmer looking to get back to the basics or a 
 - <a href="#introduction-to-assembly">Introduction to Assembly</a>
   - Brief Overview of Assembly Language
   - The Importance of Learning Assembly
-- <a href="historical-context-of-assembly-language">Historical Context of Assembly Language</a>
+- <a href="#historical-context-of-assembly-language">Historical Context of Assembly Language</a>
   - Brief History and Evolution
   - Role in Modern Computing
 - <a href="#basics-of-assembly-language">Basics of Assembly Language</a>
