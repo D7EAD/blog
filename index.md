@@ -6,7 +6,7 @@
 <ul>
   <li><details><summary>Assembly</summary>
     <ul>
-      <li><a href="/programming/assembly/ita-basics">Introduction to x86 and x64 Assembly: Part One, The Basics.</a></li> 
+      <li><a href="/programming/assembly/ita-basics_off">Introduction to x86 and x64 Assembly: Part One, The Basics.</a></li> 
     </ul>
   </details></li>  
 </ul>
