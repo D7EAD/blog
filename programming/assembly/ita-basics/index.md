@@ -110,7 +110,7 @@ There is a reason computer science and engineering students are often introduced
 As you can see above, in the context of a computer (x86) or process, the stack resides in memory and grows downward to lower memory addresses. Values may be <b>pushed</b> and **popped** off the stack throughout the lifetime of a program and it is crucial to be familiar with this simple data structure.
   
 * **Pushing to the stack**: pushing to the stack is the process of inserting a value at the top of the stack. As more values are pushed to the stack, previously pushed values sink below most recently pushed values. This is what causes the First-In-Last-Out element of a stack - the first element pushed to a stack will be the last one popped out, as it waits for any values pushed after it to be removed.
-  * **Popping from the stack**: popping from the stack is the process of removing the value at the top of the stack.
+* **Popping from the stack**: popping from the stack is the process of removing the value at the top of the stack.
 
 You may have noticed additional structures in the graph above such as the heap, data segment, and code segment. Each of these has their own purpose.
   
